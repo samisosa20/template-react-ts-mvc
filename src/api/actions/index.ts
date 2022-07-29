@@ -1,10 +1,8 @@
-import { useDispatch } from "react-redux";
-
 import useGeneralActions from "./general";
+import { useTypedDispatch } from "@/config/redux";
 
 const useActions = () => {
-  const dispatch = useDispatch();
-
+  const dispatch = useTypedDispatch();
   return {
     dispatch,
     useGeneralActions,

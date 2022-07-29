@@ -1,13 +1,10 @@
-import {
-  createStore,
-  applyMiddleware,
-  compose,
-  ThunkAction,
-  Action,
-} from "@reduxjs/toolkit";
+import { createStore, applyMiddleware, compose } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import thunk from "redux-thunk";
+import thunk, { ThunkDispatch } from "redux-thunk";
+import { AnyAction } from "redux";
+import { useDispatch } from "react-redux";
+
 import useModels from "../../models";
 
 /*
@@ -28,7 +25,6 @@ const { useReducers } = useModels();
 const reducers = useReducers();
 
 const initialState = {};
-let middlewaresToApply = [thunk];
 
 const persistConfig = {
   key: "root",
@@ -52,15 +48,12 @@ let store = createStore(
   composeEnhancers(applyMiddleware(...middleware))
 );
 
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+// types
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+export type TypedDispatch = ThunkDispatch<RootState, any, AnyAction>;
+
+export const useTypedDispatch = () => useDispatch<TypedDispatch>();
 
 export const useStoreConfig = () => {
   const persistor = persistStore(store);

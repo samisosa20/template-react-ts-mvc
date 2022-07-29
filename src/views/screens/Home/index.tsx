@@ -2,6 +2,9 @@
 import useControllers from "@/controllers";
 import useComponents from "@/views/components";
 
+// img
+import reactLogo from "@/assets/img/react.svg"
+
 const Home = () => {
   // Components
   const { Typography } = useComponents();
@@ -15,11 +18,14 @@ const Home = () => {
     <div className="p-4 text-center space-y-4">
       <Typography
         variant={"h1"}
-        className={"font-bold text-5xl leading-tight tracking-tighter"}
+        className={"text-red-800"}
       >
         Hello word!
       </Typography>
-      <Typography variant={"p"}>
+        <div>
+            <img src={reactLogo} alt={"React Logo"} title={"React Logo"} width={"50px"} height={"50px"} className={"mx-auto"}/>
+        </div>
+      <Typography variant={"p"} className={"text-base text-gray-800 font-semibold"}>
         Example to show name after call API and use Redux, the name is:{" "}
         <b>{name}</b>
       </Typography>

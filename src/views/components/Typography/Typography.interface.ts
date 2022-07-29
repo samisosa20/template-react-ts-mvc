@@ -18,5 +18,4 @@ export interface TypographyInterface {
     | "small_links";
   className?: string;
   handleClick?: Function;
-  color?: string;
 }

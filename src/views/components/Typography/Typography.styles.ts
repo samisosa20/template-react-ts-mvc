@@ -1,7 +1,7 @@
 // Packages
 import React from "react";
 import styled from "styled-components";
-import tw from "tailwind.macro";
+import tw from "twin.macro";
 
 // Interfaces
 import { TypographyInterface } from "./Typography.interface";
@@ -27,21 +27,19 @@ export const StyledTypography: React.FC<TypographyInterface> = styled.p.attrs({
       case "links":
         return tw`text-sm font-mono font-bold tracking-wide leading-3 underline`;
       case "input_title":
-        return tw`text-tiny font-mono font-semibold tracking-wide leading-3`;
+        return tw`text-xs font-mono font-semibold tracking-wide leading-3`;
       case "input_help":
-        return tw`text-3xs font-mono font-normal tracking-wide leading-3`;
+        return tw`text-xs font-mono font-normal tracking-wide leading-3`;
       case "p":
         return tw`text-sm font-mono font-normal tracking-wide leading-4`;
       case "menu":
         return tw`text-xs font-sans font-bold tracking-widest leading-4`;
       case "tc":
-        return tw`text-2xs font-mono font-normal tracking-wide leading-4`;
+        return tw`text-xs font-mono font-normal tracking-wide leading-4`;
       case "small_links":
-        return tw`text-2xs font-mono font-bold tracking-wide leading-3 underline`;
+        return tw`text-xs font-mono font-bold tracking-wide leading-3 underline`;
       default:
         return tw`text-sm font-mono font-normal tracking-wide leading-4`;
     }
   }}
-  ${(props: TypographyInterface) => props.color && tw`text-${props.color}`}
-  ${(props: TypographyInterface) => props.className && tw`${props.className}`}
 `;

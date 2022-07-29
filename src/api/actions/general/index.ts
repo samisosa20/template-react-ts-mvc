@@ -1,7 +1,7 @@
 import useProviders from "@/api/providers";
 import useStrings from "@/strings";
 
-import { AppDispatch, AppThunk } from "@/config/redux";
+import { AppDispatch } from "@/config/redux";
 
 const useGeneralActions = () => {
   // Types
@@ -17,8 +17,8 @@ const useGeneralActions = () => {
       id: number,
       onSuccess: Function = () => {},
       onError: Function = () => {}
-    ): AppThunk =>
-    async (dispatch) => {
+    ) =>
+    async (dispatch: AppDispatch) => {
       try {
         const res = await exampleProvirder(id);
         if (res.status === 200) {

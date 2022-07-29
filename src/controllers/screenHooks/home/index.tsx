@@ -8,7 +8,6 @@ import useComponents from "@/views/components";
 import useActions from "@/api/actions";
 import { useEffect } from "react";
 import useModels from "@/models";
-import useGeneralSelectors from "@/models/selectors/general";
 
 const useHome = () => {
   // Helpers
